@@ -14,4 +14,5 @@ public class SchleifenAufgaben {
 			System.out.println("");
 		}
 	}
+
 }
