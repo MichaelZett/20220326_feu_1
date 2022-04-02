@@ -8,10 +8,20 @@ public class Frachtschiff {
 	private UUID id;
 	private int tank;
 
+	public Frachtschiff() {
+		// nur so
+	}
+
 	public Frachtschiff(String name) {
+		this();
 		this.name = name;
 		this.tank = MAXIMALE_TANK_GROESSE;
 		this.id = UUID.randomUUID();
+	}
+
+	public Frachtschiff(String name, int tank) {
+		this(name);
+		this.tank = tank;
 	}
 
 	public String getName() {

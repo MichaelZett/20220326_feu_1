@@ -7,7 +7,7 @@ import de.feu.logistik.wartung.Tankstelle;
 public class LogistikApp {
 
 	public static void main(String[] args) {
-		Frachtschiff petra = new Frachtschiff("Petra");
+		Frachtschiff petra = new Frachtschiff("Petra", 100);
 
 		Reporter reporter = new Reporter();
 		reporter.erstelleReport(petra);
