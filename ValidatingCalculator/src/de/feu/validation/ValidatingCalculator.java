@@ -4,36 +4,33 @@ import java.util.Scanner;
 
 public class ValidatingCalculator {
 
-	public void start() throws InterruptedException {
+	public void start() {
 		int zahl = 0;
 		int zahl2 = 0;
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Gib zahl ein...");
-		if (sc.hasNextInt()) {
-			zahl = sc.nextInt();
-		}
-		System.out.println("Gib noch zahl ein...");
+
+		zahl = retrieveZahl(sc);
+		zahl2 = retrieveZahl(sc);
+
+		int ergebnis = zahl + zahl2;
+		System.out.println("Ergebnis: " + ergebnis);
+
+		sc.close();
+	}
+
+	private int retrieveZahl(Scanner sc) {
+		int zahl2;
+		System.out.println("Gib bitte eine Zahl ein...");
 
 		if (sc.hasNextInt()) {
 			zahl2 = sc.nextInt();
-		}
-//	else if (sc.hasNextLong()) { weitere else if möglich
-//		zahl2 = (int) sc.nextLong();
-//	} 
-		else {
+		} else {
 			System.out.println("Eine Zahl Mensch!");
 			sc.next(); // verkonsumieren
 			zahl2 = sc.nextInt();
 		}
-
-		System.out.println("Ich rechne...");
-		Thread.sleep(100L);
-		int ergebnis = zahl + zahl2;
-		System.out.println("habe Ergebnis: " + ergebnis);
-
-		sc.close();
-
+		return zahl2;
 	}
 
 }
