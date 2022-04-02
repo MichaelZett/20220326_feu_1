@@ -6,21 +6,23 @@ public class Frachtschiff {
 	private static final int MAXIMALE_TANK_GROESSE = 5000;
 	private String name;
 	private UUID id;
+	private Treibstoff treibstoff;
 	private int tank;
 
 	public Frachtschiff() {
 		// nur so
 	}
 
-	public Frachtschiff(String name) {
+	public Frachtschiff(String name, Treibstoff treibstoff) {
 		this();
 		this.name = name;
+		this.treibstoff = treibstoff;
 		this.tank = MAXIMALE_TANK_GROESSE;
 		this.id = UUID.randomUUID();
 	}
 
-	public Frachtschiff(String name, int tank) {
-		this(name);
+	public Frachtschiff(String name, int tank, Treibstoff treibstoff) {
+		this(name, treibstoff);
 		this.tank = tank;
 	}
 
@@ -33,6 +35,9 @@ public class Frachtschiff {
 	}
 
 	public void volltanken() {
+		if (this.treibstoff == Treibstoff.SOLAR) {
+			throw new UnsupportedOperationException();
+		}
 		this.tank = MAXIMALE_TANK_GROESSE;
 	}
 
@@ -48,9 +53,13 @@ public class Frachtschiff {
 		return tank;
 	}
 
+	public Treibstoff getTreibstoff() {
+		return treibstoff;
+	}
+
 	@Override
 	public String toString() {
-		return "Frachtschiff [name=" + name + ", id=" + id + ", tank=" + tank + "]";
+		return "Frachtschiff [name=" + name + ", id=" + id + ", treibstoff=" + treibstoff + ", tank=" + tank + "]";
 	}
 
 }
