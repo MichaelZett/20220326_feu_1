@@ -20,17 +20,29 @@ public class ValidatingCalculator {
 	}
 
 	private int retrieveZahl(Scanner sc) {
-		int zahl2;
-		System.out.println("Gib bitte eine Zahl ein...");
-
-		if (sc.hasNextInt()) {
-			zahl2 = sc.nextInt();
-		} else {
-			System.out.println("Eine Zahl Mensch!");
-			sc.next(); // verkonsumieren
-			zahl2 = sc.nextInt();
+		int count = 0;
+		int zahl = Integer.MIN_VALUE;
+		while (zahl == Integer.MIN_VALUE) {
+			System.out.println("Gib bitte eine Zahl ein...");
+			if (sc.hasNextInt()) {
+				zahl = sc.nextInt();
+			} else {
+				callForNumer(count);
+				sc.next(); // verkonsumieren
+				count++;
+			}
 		}
-		return zahl2;
+		return zahl;
+	}
+
+	private void callForNumer(int count) {
+		if (count < 3) {
+			System.out.println("Entschuldigung, das war leider keine Zahl. Bitte versuche es nochmal!");
+		} else if (count < 7) {
+			System.out.println("Immer noch keine Zahl. Zahlen sind z.B.: 1,2,3...");
+		} else {
+			System.out.println("Eine ZAHL, Mensch!!!!");
+		}
 	}
 
 }
