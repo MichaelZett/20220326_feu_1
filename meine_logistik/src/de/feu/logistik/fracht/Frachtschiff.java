@@ -2,12 +2,10 @@ package de.feu.logistik.fracht;
 
 import java.util.UUID;
 
-public class Frachtschiff {
+public class Frachtschiff extends AbstractHatTreibstoff {
 	private static final int MAXIMALE_TANK_GROESSE = 5000;
 	private String name;
 	private UUID id;
-	private Treibstoff treibstoff;
-	private int tank;
 
 	public Frachtschiff() {
 		// nur so
@@ -34,27 +32,16 @@ public class Frachtschiff {
 		this.name = name;
 	}
 
+	public UUID getId() {
+		return id;
+	}
+
+	@Override
 	public void volltanken() {
 		if (this.treibstoff == Treibstoff.SOLAR) {
 			throw new UnsupportedOperationException();
 		}
 		this.tank = MAXIMALE_TANK_GROESSE;
-	}
-
-	public void verbraucheTreibstoff(int menge) {
-		this.tank = this.tank - menge;
-	}
-
-	public UUID getId() {
-		return id;
-	}
-
-	public int getTank() {
-		return tank;
-	}
-
-	public Treibstoff getTreibstoff() {
-		return treibstoff;
 	}
 
 	@Override

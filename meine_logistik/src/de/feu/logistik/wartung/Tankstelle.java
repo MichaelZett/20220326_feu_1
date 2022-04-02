@@ -1,11 +1,11 @@
 package de.feu.logistik.wartung;
 
-import de.feu.logistik.fracht.Frachtschiff;
+import de.feu.logistik.fracht.HatTreibstoff;
 
 public class Tankstelle {
 
-	public void tanke(Frachtschiff schiff) {
-		schiff.volltanken();
+	public void tanke(HatTreibstoff hatTreibstoff) {
+		hatTreibstoff.volltanken();
 	}
 
 }

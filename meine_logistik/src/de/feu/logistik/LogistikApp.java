@@ -5,6 +5,8 @@ import static de.feu.logistik.fracht.Treibstoff.DIESEL;
 import java.util.Arrays;
 
 import de.feu.logistik.fracht.Frachtschiff;
+import de.feu.logistik.fracht.HatTreibstoff;
+import de.feu.logistik.fracht.Lkw;
 import de.feu.logistik.fracht.Treibstoff;
 import de.feu.logistik.report.Reporter;
 import de.feu.logistik.wartung.Tankstelle;
@@ -25,6 +27,12 @@ public class LogistikApp {
 		Arrays.asList(Treibstoff.values()).forEach(System.out::println);
 		Treibstoff treibstoff = Treibstoff.valueOf("DIESEL");
 		System.out.println(treibstoff.getUiName());
+
+		HatTreibstoff lkw = new Lkw();
+		lkw.verbraucheTreibstoff(50);
+		System.out.println(lkw);
+		tankstelle.tanke(lkw);
+		System.out.println(lkw);
 	}
 
 }
