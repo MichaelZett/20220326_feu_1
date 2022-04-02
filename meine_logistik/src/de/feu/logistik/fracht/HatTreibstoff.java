@@ -5,7 +5,9 @@ public interface HatTreibstoff {
 
 	Treibstoff getTreibstoff();
 
-	void volltanken();
+	default void volltanken() {
+
+	}
 
 	void verbraucheTreibstoff(int menge);
 }

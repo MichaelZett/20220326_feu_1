@@ -1,12 +1,12 @@
 package de.feu.logistik.report;
 
-import de.feu.logistik.fracht.Frachtschiff;
+import java.util.Arrays;
 
 public class Reporter {
 
-	public void erstelleReport(Frachtschiff schiff) {
+	public void erstelleReport(Object... printable) {
 		System.out.println("Mein Report:");
-		System.out.println(schiff);
+		Arrays.asList(printable).forEach(System.out::println);
 	}
 
 }

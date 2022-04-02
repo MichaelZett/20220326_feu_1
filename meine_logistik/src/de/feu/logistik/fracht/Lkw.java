@@ -15,8 +15,7 @@ public class Lkw extends AbstractHatTreibstoff {
 	}
 
 	@Override
-	public String toString() {
-		return "Lkw [treibstoff=" + treibstoff + ", tank=" + tank + "]";
+	protected void weitereTaetigkeiten() {
+		System.out.println("Reifen aufpumpen.");
 	}
-
 }

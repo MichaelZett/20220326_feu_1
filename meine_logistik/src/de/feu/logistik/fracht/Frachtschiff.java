@@ -1,5 +1,6 @@
 package de.feu.logistik.fracht;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Frachtschiff extends AbstractHatTreibstoff {
@@ -47,6 +48,28 @@ public class Frachtschiff extends AbstractHatTreibstoff {
 	@Override
 	public String toString() {
 		return "Frachtschiff [name=" + name + ", id=" + id + ", treibstoff=" + treibstoff + ", tank=" + tank + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Frachtschiff other = (Frachtschiff) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	protected void weitereTaetigkeiten() {
+		System.out.println("Muscheln vom Rumpf kratzen.");
 	}
 
 }

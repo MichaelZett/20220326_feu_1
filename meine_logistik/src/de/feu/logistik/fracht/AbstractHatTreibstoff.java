@@ -19,4 +19,16 @@ public abstract class AbstractHatTreibstoff implements HatTreibstoff {
 		this.tank = this.tank - menge;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " [treibstoff=" + treibstoff + ", tank=" + tank + "]";
+	}
+
+	public void reparieren() {
+		System.out.println("Schäden werden beseitigt.");
+		weitereTaetigkeiten();
+	}
+
+	protected abstract void weitereTaetigkeiten();
+
 }
